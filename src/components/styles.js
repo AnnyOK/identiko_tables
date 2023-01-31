@@ -51,10 +51,29 @@ export const  HarmMenu = styled(HiMenu)`
 color:${colorStyles.green};
 background-color: ${ colorStyles.white };
 border-radius:5px;
-margin:5px;
+margin:10px;
+position:absolute;
+right:0;
+top:0;
+box-shadow:2px 3px ${colorStyles.grey};
+padding:0px;
+width:25px;
+height:20px;
+@media ${devices.tablets}{
+  border-radius:5px;
+margin:10px;
+position:absolute;
+right:0;
+top:0;
+box-shadow:2px 3px ${colorStyles.grey};
 padding:5px;
 width:50px;
 height:50px;
+
+}
+@media ${devices.desktop}{
+  // display:grid;
+}
 `
 // export const 
 export const ActionButton = styled.button`
@@ -80,10 +99,14 @@ export const ActionButton = styled.button`
 export const HarmburgerStyle= styled.div`
 width:50px;
 height:50px;
-visibility: hidden
+position:absolute;
+top:0;
+right:0;
+margin:10px;
+// visibility: hidden
 @media ${devices.tablets}{
-  // visibility: hidden
-  display:contents;
+  visibility: hidden
+  // display:contents;
 }
 `
 // icon component 
@@ -106,19 +129,16 @@ background-color:${bgColor};
 
 // #69f0ae green #18ffff bluegreen
 export const MainDiv = styled.div`
-  padding-left: 20px;
-  z-index:-1;
-  padding-right: 30px;
-  padding-bottom:60px;
-  height: 50vh;
-  width: 100vw;
-  padding-right: 20px;
+display:flex;
+flex-direction:column;
+  height: fit-content;
+  width: 100%;
   align-items: center;
   background-image: linear-gradient(to right, #69f0ae, #18ffff);
   justify-content: space-between;
-  margin-top: 0px;
+  margin: 0;
   @media ${devices.tablets}{
-    height: auto;
+    height: fit-content;
     background-color:red;
     justify-content: space-evenly;
 
@@ -126,7 +146,7 @@ export const MainDiv = styled.div`
   
 `
 export const CardDiv = styled.div`
-  // height:0vh;
+  height:fit-content;
   // position:absolute;
   padding-top:30px;
   width: 100%;
@@ -134,30 +154,31 @@ export const CardDiv = styled.div`
   flex-wrap:wrap;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0px;
-  @media ${devices.tablets}{
+  margin: 0;
+  padding:10px;
+  @media${devices.tablets}{
+    height:fit-content;
     display:grid;
-    grid-template-columns:auto auto ;
+    grid-template-columns:auto auto;
   justify-content: space-evenly;
-
     grid-gap:10px;
     padding:10px;
   }
-  @media ${devices.mobileS}{
-    display:flex;
-    flex-direction:column;
-    height: fit-content;
+  @media ${devices.laptop}{
+    display:grid;
+    grid-template-columns:25%  25% auto;
+    // flex-direction:column;
+    // height: fit-content;
   }
 `
 export const ChartWrapper = styled.div`
   display: flex;
+  flex-direction:column;
   background-color:${colorStyles.white};
-  margin-top: -50px;
-  padding-top: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin: 0;
+  padding: 20px;
   width: 100%;
-  height: 50vh;
+  height: fit-content;
   border: none;
   @media ${devices.tablets}{
     height:fit-content;
@@ -167,19 +188,33 @@ export const ChartWrapper = styled.div`
 
 
   }
+  @media ${devices.tablets}{
+    height:fit-content;
+    flex-direction: row;
+    margin-top:5px;
+  justify-content: center;
+  }
 `
 export const ScoreCard = styled.div`
-  min-width: 250px;
-  margin:auto;
-  height: 150px;
+  min-width: 80%;
+  margin:20px auto;;
+  min-height: 150px;
   border-radius: 8px;
   background-color: ${colorStyles.white};
   border: 2px ${colorStyles.grey};
   box-shadow: 1px 1px ${colorStyles.shadow};
   &:hover{
-    min-width: calc(30% - 30px);
-    height: 25vh;
+    width:300px;
+    height: 30vh;
     // background-color: ${colorStyles.blue}
+  }
+  @media${devices.tablets}{
+width:100%;
+height:150px;
+&:hover{
+  height:150px;
+  box-shadow:2px 3px ${colorStyles.shadow};
+}
   }
 `
 export const Score = styled.h1`
@@ -193,23 +228,30 @@ justify-self:left;
 `
 export const PlotWrapper = styled.div`
 ${({theme,width,height})=>`
-padding: 20px;
+padding: 10px;
   border: 1px solid ${colorStyles.grey};
   border-radius: 6px;
-  // margin-top:-10px;
-  position: relative;
+  margin:20px;
+  // position: relative;
   background-color: ${theme};
   height: 45vh;
   width: ${width||"40vw"};
   box-shadow: 3px 5px ${colorStyles.shadow};
-  margin: -40px 10px 5px 10px;`}
+  margin: 20px auto;`
+}
   @media ${devices.tablets}{
 align-self:center;
 margin-top:10px;
 width:90%;
 height:width;
   }
-  
+  button{
+    background-color:${colorStyles.green};
+    color:${colorStyles.blue}
+    top:5px;
+    left:10px;
+    border-radius:5px;
+  }
 `
 
 export const Report = styled.div`
@@ -219,7 +261,7 @@ export const Report = styled.div`
   padding:5px;
   flex-direction:column;
   align-items: left;
-  padding-left:1rrem;
+  padding-left:1rem;
   p{
     color: ${colorStyles.grey};
     font-size:12px;
@@ -258,6 +300,25 @@ export const Banner = styled.div`
   z-index:1000;
   padding: 10px;
   justify-content: space-between;
+  
+`
+export const NavBar =styled.div`
+
+width:100%;
+height:fit-content;
+display:flex;
+justify-content:flex-end;
+// position:relative;
+top:40px;
+margin:50px 0 10px 0;;
+background-image:linear-gradient(to right,${colorStyles.grey},${colorStyles.white},${colorStyles.grey});
+a{
+  align-self: right;
+  margin:2px;
+  padding:3px 5px;
+  // width:100%; 
+};
+
 `
 
 export const FieldSet = styled.div`
@@ -291,19 +352,41 @@ export const Logo = styled.div`
 `
 export const Transparent = styled.div`
 padding:0;
-margin:zero;
+margin:0;
 display:flex;
 flex-direction:column;
 justify-content:center;
 background-color:transparent;
+@media${devices.tablets}{
+  justify-content:left;
+  position:absolute;
+  // top:30px;
+  left:30px;
+  display:flex;
+
+  // top:20px;
+  // left:20px;
+  
+};
+@media${devices.laptop}{
+  display:flex;
+  justify-content:left;
+  position:relative;
+  // top:40px;
+  // left:40px;
+  
+}
 `
 
 export const Size11 = styled.p`
 ${({border,background})=>`
 font-size: 11px;
 border: ${border};
+margin:1px;
+text-align:center;
+border-radius:5px;
 background-color:${background};
-color:${colorStyles.grey};
+color:${colorStyles.black};
 span {
   color: ${colorStyles.bluetext};
   font-weight: bold;

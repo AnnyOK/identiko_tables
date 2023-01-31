@@ -11,8 +11,8 @@ const OnClickHandler= ()=>{
 }
     return (
         <HarmburgerStyle>
-<Size11 onClick={props.onClick} border={`1px solid ${colorStyles.grey}`} background={colorStyles.white}>Menu</Size11>
-<Size11 onClick={props.onClick} border={`1px solid ${colorStyles.grey}`} background={colorStyles.white}>More</Size11>
+<Size11 onClick={props.onClick} border={`1px solid ${colorStyles.green}`} background={colorStyles.white}>Menu</Size11>
+<Size11 onClick={props.onClick} border={`1px  solid ${colorStyles.green}`} background={colorStyles.white}>More...</Size11>
             
         </HarmburgerStyle>
     );

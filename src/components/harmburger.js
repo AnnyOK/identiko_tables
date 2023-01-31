@@ -8,6 +8,7 @@ export function Harmburger(props) {
 return <Menucontext.Provider value={[openMenu, setOpenMenu]}>
    <div>
     {openMenu && <Menu  onClick={()=>setOpenMenu(!openMenu)} /> }
-    {!openMenu &&<button onClick={()=>setOpenMenu(!openMenu)}><HarmMenu /></button>}</div>
+    {!openMenu &&<div onClick={()=>setOpenMenu(!openMenu)}><HarmMenu /></div>}
+    </div>
 </Menucontext.Provider>
 }
